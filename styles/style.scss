@@ -1,0 +1,140 @@
+// Importing other SCSS files into this file
+@import "./reset";
+@import "./mediaQueries";
+@import "./mixins";
+@import "./variables";
+
+body {
+  display: grid;
+  place-items: center;
+
+  font-family: $ff-Open-Sans;
+  font-weight: $fw-400;
+  color: white;
+
+  background: $violet url(../images/bg-mobile.svg) no-repeat center top;
+  background-size: contain;
+
+  @include md(lg) {
+    background-image: url("../images/bg-desktop.svg");
+    background-size: cover;
+  }
+}
+
+#app {
+  max-width: 1440px;
+  padding: 2.5rem;
+
+  @include flex(center, space-between);
+  flex-direction: column;
+  gap: 3.75rem;
+}
+
+.header {
+  align-self: flex-start;
+
+  &__logo {
+    max-width: 50%;
+
+    @include md(md) {
+      min-width: 100%;
+    }
+  }
+}
+
+.main {
+  .intro {
+    @include flex(center, center);
+    flex-direction: column;
+    gap: 4.25rem;
+
+    @include md(md) {
+      flex-direction: row;
+    }
+
+    &__image {
+      @include md(md) {
+        flex-basis: 60%;
+      }
+    }
+
+    &__content {
+      text-align: center;
+
+      @include md(md) {
+        flex-basis: 40%;
+        text-align: left;
+      }
+    }
+
+    &__title {
+      margin-bottom: 1rem;
+      font-family: $ff-Poppins;
+      font-size: 1.5rem;
+      font-weight: $fw-600;
+
+      @include md(md) {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__text {
+      margin-bottom: 1.5rem;
+      font-size: 0.975rem;
+      line-height: 1.75;
+
+      @include md(md) {
+        font-size: 1.125rem;
+      }
+    }
+
+    &__cta {
+      display: inline-block;
+      text-align: center;
+      width: 200px;
+      padding-block: 0.75rem;
+      color: $violet;
+      background-color: white;
+      border-radius: 50px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      transition: all 0.3s ease-in-out;
+
+      @include md(md) {
+        padding-block: 1rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: $soft-magenta;
+        color: white;
+      }
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  gap: 1rem;
+
+  @include md(md) {
+    align-self: flex-end;
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    @include flex(center, center);
+    font-size: 1.25rem;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      color: $soft-magenta;
+      border-color: $soft-magenta;
+    }
+  }
+}
